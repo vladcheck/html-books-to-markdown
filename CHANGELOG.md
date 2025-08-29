@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning].
 
 - /
 
+## [0.2.1] - 2025-08-29
+
+### Fixed
+
+- Bad space parsing
+
+### Removed
+
+- `remove_extra_spaces(line)`, as it caused the issue of bad space parsing
+
+## [0.2.0] - 2025-08-29
+
+### Added
+
+- More special HTML symbols are supported
+
+
 ## [0.1.1] - 2025-08-29
 
 ### Added
@@ -42,6 +59,8 @@ and this project adheres to [Semantic Versioning].
 
 <!-- Versions -->
 [unreleased]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
+[0.2.1]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
+[0.2.0]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
 [0.1.1]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
 [0.1.0]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
 [0.0.1]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->

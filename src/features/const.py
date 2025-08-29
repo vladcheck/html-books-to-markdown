@@ -47,6 +47,8 @@ HTML_ENTITY_TO_SYMBOL: dict[str, str] = {
     "&lt;": "<",
     "&quot;": '"',
     "&amp;": "&",
+    "&mdash;": "—",
+    "&ndash;": "–",
     "&deg;": "°",
     "&#32;": " ",
     "&#33;": "!",

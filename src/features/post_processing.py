@@ -16,10 +16,6 @@ def remove_scripts(content: str) -> str:
     return re.sub(re_scripts, "", content)
 
 
-def remove_extra_spaces(line: str) -> str:
-    return re.sub(re_extra_spaces, " ", line)
-
-
 def replace_special_characters(line: str) -> str:
     for [pattern, char] in HTML_ENTITY_TO_SYMBOL.items():
         line = line.replace(pattern, char)
@@ -34,7 +30,6 @@ def post_process():
         content = remove_scripts(content)
         content = remove_styles(content)
         content = replace_special_characters(content)
-        content = remove_extra_spaces(content)
         file.close()
 
         file = open(f"./dist/{filename}", "w", encoding="utf8")  # TODO: Use settings[]
