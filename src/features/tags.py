@@ -1,15 +1,15 @@
 import re
 from const import TAGS_FOR_REMOVAL
 
-re_tag_attributes = re.compile(r"(?<=<\w)?\ ([\w=\"'#\-\s]*)(?=>)\s?")
+re_tag_attributes = re.compile(r"(?:\w+=\".+\"\s*)+")
 
 
 def tag_replace(line: str, tag: str, repl1: str = "", repl2: str = "") -> str:
-    return line.replace(f"<{tag}>", repl1).replace(f"</{tag}>", repl2)
+    return re.sub(rf"<{tag}\s*\/?>", repl1, line).replace(f"</{tag}>", repl2)
 
 
 def tag_delete(line: str, tag: str) -> str:
-    return line.replace(f"<{tag}>", "").replace(f"</{tag}>", "")
+    return re.sub(rf"<{tag}\s*\/?>", "", line).replace(f"</{tag}>", "")
 
 
 def sanitize_tags(line: str) -> str:
