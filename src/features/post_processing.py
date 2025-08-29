@@ -6,7 +6,7 @@ re_styles = re.compile(r"<style.*style>", re.S)
 re_scripts = re.compile(r"<script.*script>", re.S)
 re_doctype = re.compile(r"")
 re_extra_spaces = re.compile(r"\s{2,}")
-
+re_html_comments = re.compile(r"<!--.*")
 
 def remove_styles(content: str) -> str:
     return re.sub(re_styles, "", content)
@@ -14,6 +14,10 @@ def remove_styles(content: str) -> str:
 
 def remove_scripts(content: str) -> str:
     return re.sub(re_scripts, "", content)
+
+
+def remove_html_comments(content: str) -> str:
+    return re.sub(re_html_comments, "", content)
 
 
 def replace_special_characters(line: str) -> str:
@@ -30,6 +34,7 @@ def post_process():
         content = remove_scripts(content)
         content = remove_styles(content)
         content = replace_special_characters(content)
+        content = remove_html_comments(content)
         file.close()
 
         file = open(f"./dist/{filename}", "w", encoding="utf8")  # TODO: Use settings[]

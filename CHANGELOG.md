@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning].
 
 - /
 
+## [0.2.2] - 2025-08-29
+
+### Fixed
+
+- HTML-comments and similar directives (ex. `<!--if[...]>`) are not parsed
+
+
 ## [0.2.1] - 2025-08-29
 
 ### Fixed
@@ -59,6 +66,7 @@ and this project adheres to [Semantic Versioning].
 
 <!-- Versions -->
 [unreleased]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
+[0.2.2]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
 [0.2.1]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
 [0.2.0]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
 [0.1.1]: https://github.com/vladcheck/ <!-- FIXME: Normal link -->
