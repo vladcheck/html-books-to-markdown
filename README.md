@@ -31,6 +31,9 @@ It's a python script that converts `.htm` and `.html` files to markdown format (
 6. Doesn't parse multiline quotes and cites properly (only first line is parsed in a special way);
 7. Sometimes incorrectly parses multiline code blocks (skips triple-backticks);
 8. `<ol>` lists are treated as `<ul>`;
+9. Lists and blockquotes are treated as one indent level only;
+10. Footnotes are unsupported;
+11. Heading links are unsupported;
 
 ## TBD
 
