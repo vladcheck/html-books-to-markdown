@@ -1,15 +1,6 @@
 import os
 import re
-
-char_map = {
-    "&lt;": "<",
-    "h&gt;": ">",
-    "&nbsp;": " ",
-    "&amp;": "&",
-    "–": "-",
-    "’": "'",
-}
-
+from features.const import HTML_ENTITY_TO_SYMBOL
 
 re_styles = re.compile(r"<style.*style>", re.S)
 re_scripts = re.compile(r"<script.*script>", re.S)
@@ -30,7 +21,7 @@ def remove_extra_spaces(line: str) -> str:
 
 
 def replace_special_characters(line: str) -> str:
-    for [pattern, char] in char_map.items():
+    for [pattern, char] in HTML_ENTITY_TO_SYMBOL.items():
         line = line.replace(pattern, char)
     return line
 
@@ -51,5 +42,5 @@ def post_process():
         file.close()
     print("Post processing ended successfully.")
 
-
-# post_process()
+if __name__ == "__main__":
+    post_process()

@@ -1,6 +1,6 @@
 import re
-from const import TAGS_FOR_REMOVAL
-from features.chapters import is_new_chapter, switch_streams
+from .const import TAGS_FOR_REMOVAL
+from .chapters import is_new_chapter, switch_streams
 
 re_tag_attributes = re.compile(r"(?:\w+=\".+\"\s*)+")
 

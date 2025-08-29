@@ -1,4 +1,3 @@
-from const import *
 from settings import settings
 
 from features.tags import *
@@ -26,5 +25,5 @@ def main():
 
     print("Done.")
 
-
-main()
+if __name__ == "__main__":
+    main()
