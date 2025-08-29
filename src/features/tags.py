@@ -1,5 +1,6 @@
 import re
 from const import TAGS_FOR_REMOVAL
+from features.chapters import is_new_chapter, switch_streams
 
 re_tag_attributes = re.compile(r"(?:\w+=\".+\"\s*)+")
 
@@ -44,6 +45,7 @@ def parse_html_tags(line: str) -> str:
     line = tag_replace(line, "blockquote", "> ")
     line = tag_replace(line, "cite", "> ")
     line = tag_replace(line, "caption", "> ")
+    line = tag_replace(line, "figcaption", "> ")
 
     line = tag_replace(line, "br", "\n")
 
@@ -51,4 +53,22 @@ def parse_html_tags(line: str) -> str:
     line = tag_replace(line, "th", "| ", " |")
     line = tag_replace(line, "tr", "| --- |", "| --- |")
 
+    line = tag_replace(line, "sub", "^")
+    line = tag_replace(line, "sup", "_")
+
     return line
+
+
+def parse_tags(stdin, stdout):
+    print("Parsing tags...")
+
+    for line in stdin.readlines():
+        if is_new_chapter(line):
+            stdout = switch_streams(stdout, line)
+
+        line = parse_html_tags(line)
+        stdout.write(line)
+
+    stdin.close()
+    stdout.close()
+    print("Tags parsed successfully.")

@@ -1,6 +1,6 @@
 settings = {
     "stdin": {
-        "path": ".",
+        "path": "./example",
         "name": "Michael Abrash’s Graphics Programming Black Book, Special Edition.htm",
         "encoding": "utf8",
     },

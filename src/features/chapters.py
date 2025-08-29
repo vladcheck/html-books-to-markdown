@@ -19,7 +19,7 @@ def is_new_chapter(line: str) -> bool:
 def switch_streams(stdout, current_line: str) -> TextIOWrapper:
     match = re_chapter_name.search(current_line)
     chapter_name: str
-    print(match)
+
     if match:
         stdout.close()
         chapter_name = "".join(match.group(0))
